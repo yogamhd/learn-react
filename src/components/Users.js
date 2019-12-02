@@ -1,9 +1,11 @@
 import React from 'react'
+import ComponentMount from "./ComponentMount";
 
 export default function Users() {
     return (
         <div>
-            <p>Ini adalah Users</p>
+            <ComponentMount />
+            {/* <p>Ini adalah Users</p> */}
         </div>
     )
 }
