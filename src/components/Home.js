@@ -2,11 +2,22 @@
 import { Redirect } from "react-router-dom";
 
 export default function Home() {
-    const isLogin = JSON.parse(localStorage.getItem("isLogin"));
+    const token = JSON.parse(localStorage.getItem("token"));
 
     return (
         <div>
-            {isLogin ? <p>Ini adalah Home</p> : <Redirect to="/signin" />}
+            {token ? <p>Ini adalah Home</p> : <Redirect to="/signin" />}
         </div>
     );
 }
+
+
+// export default function Home() {
+//     const isLogin = JSON.parse(localStorage.getItem("isLogin"));
+
+//     return (
+//         <div>
+//             {isLogin ? <p>Ini adalah Home</p> : <Redirect to="/signin" />}
+//         </div>
+//     );
+// }

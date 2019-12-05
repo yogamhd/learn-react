@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter, Link } from "react-router-dom";
 import { Formik, ErrorMessage } from "formik";
-import axios from "axios";
+// import axios from "axios";
 import { validationForm } from "../validate";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
@@ -13,6 +13,8 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import {axios} from "../helpers";
+
 
 const useStyles = makeStyles(theme => ({
     "@global": {
@@ -41,7 +43,7 @@ const useStyles = makeStyles(theme => ({
 
 function SignUp(props) {
     const classes = useStyles();
-    const API = process.env.REACT_APP_API_LIVE;
+    // const API = process.env.REACT_APP_API_LIVE;
 
     return (
         <Container component="main" maxWidth="xs">
@@ -60,7 +62,9 @@ function SignUp(props) {
                     }}
                     validate={validationForm}
                     onSubmit={values => {
-                        axios.post(`${API}/user`, values).then(response => {
+                        axios()
+                        .post(`/user`, values)
+                        .then(response => {
                             if (response.status === 201) {
                                 props.history.push("/signin");
                             }
